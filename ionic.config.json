@@ -1,0 +1,7 @@
+{
+  "name": "thecocktaildbclient",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
