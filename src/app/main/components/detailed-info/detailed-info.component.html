@@ -1,0 +1,31 @@
+<div class="detailed-info" *ngIf="model">
+  <div class="detailed-info__img-container">
+    <ion-img class="detailed-info__img" alt="image of cocktail" [src]="model.imgUrl"></ion-img>
+  </div>
+
+  <div class="detailed-info__content">
+    <div class="detailed-info__header">
+      <span class="detailed-info__header-name">Cocktail: </span>
+      <span class="detailed-info__header-value">{{model.title}}</span>
+    </div>
+
+    <div *ngIf="model.title" class="detailed-info__description">
+      <div *ngIf="model.glassType" class="detailed-info__field">
+        <span class="detailed-info__field-name">Glass type: </span>
+        <span class="detailed-info__field-value">{{model.glassType}}</span>
+      </div>
+
+      <div *ngIf="model.ingredients?.length" class="detailed-info__field">
+        <div class="detailed-info__field-name">Ingredients:</div>
+        <ul class="detailed-info__field-value">
+          <li class="detailed-info__field-value-item" *ngFor="let ingredient of model.ingredients">{{ingredient}}</li>
+        </ul>
+      </div>
+
+      <div *ngIf="model.instruction" class="detailed-info__field">
+        <div class="detailed-info__field-name">Instruction: </div>
+        <div class="detailed-info__field-value">{{model.instruction}}</div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,44 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-item>
+      <ion-input enterkeyhint="search" (keyup.enter)="searchCocktails()" placeholder="search coctails" [(ngModel)]="inputText"></ion-input>
+    </ion-item>
+    <ion-buttons slot="end">
+      <ion-button (click)="searchCocktails()">
+        <ion-icon slot="icon-only" name="search"></ion-icon>
+      </ion-button>
+      <ion-button (click)="openModal()">
+        <ion-icon slot="icon-only" name="help-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" scroll-x="true">
+  <ng-container *ngIf="cocktailService.cocktails$ | async as response">
+
+    <ng-container *ngIf="response.loading; else error">
+      <loader></loader>
+    </ng-container>
+
+    <ng-template #error>
+      <ng-container *ngIf="response.error; else data">
+        <div class="error">
+          {{response.error}}
+        </div>
+      </ng-container>
+    </ng-template>
+
+    <ng-template #data>
+      <ng-container *ngIf="response.data as cocktails">
+        <div class="cards">
+          <ion-list class="cards__list">
+            <cocktail-card class="cards__list-item" *ngFor="let coctail of cocktails" [model]="coctail" (click)="goToCocktailDetails(coctail.id)">
+            </cocktail-card>
+          </ion-list>
+        </div>
+      </ng-container>
+    </ng-template>
+  </ng-container>
+
+</ion-content>

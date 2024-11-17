@@ -1,0 +1,17 @@
+.error {
+  padding: 16px;
+}
+
+.cards {
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px calc(20vw);
+  }
+
+  &__list-item {
+    max-width: 260px;
+  }
+}

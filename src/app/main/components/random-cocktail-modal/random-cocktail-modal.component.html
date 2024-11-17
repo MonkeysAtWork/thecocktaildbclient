@@ -1,0 +1,17 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Random coctail</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="cancel()">
+        <ion-icon slot="icon-only" name="close"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content class="ion-padding">
+  <detailed-info *ngIf="cocktail$ | async as cocktail; else loading" [model]="cocktail"></detailed-info>
+
+  <ng-template #loading>
+    <loader></loader>
+  </ng-template>
+</ion-content>

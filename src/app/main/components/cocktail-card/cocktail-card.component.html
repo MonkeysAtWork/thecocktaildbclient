@@ -1,0 +1,15 @@
+<ion-card class="card" routerLink *ngIf="model">
+  <ion-card-content class="card__content">
+    <div class="card__content-img-container">
+      <ion-img class="card__content-img" alt="image of cocktail" [src]="model.imgUrl"></ion-img>
+    </div>
+
+    <div class="card__content-info">
+      <div class="card__content-title">{{model.title}}</div>
+      <div class="card__content-field">
+        <span class="card__content-field-name">Glass type: </span>
+        <span class="card__content-field-value">{{model.glassType}}</span>
+      </div>
+    </div>
+  </ion-card-content>
+</ion-card>

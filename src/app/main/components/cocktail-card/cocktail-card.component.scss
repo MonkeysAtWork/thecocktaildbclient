@@ -1,0 +1,21 @@
+@import "/src/theme/variables.scss";
+
+.card {
+  margin-left: 0;
+  margin-right: 0;
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  &__content-title {
+    @include TextHeader2;
+  }
+
+  &__content-field {
+    @include TextSmall;
+    color: gray;
+  }
+}

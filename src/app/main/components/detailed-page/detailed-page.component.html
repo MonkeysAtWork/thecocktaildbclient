@@ -1,0 +1,18 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Details</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button default-href="/"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="ion-padding">
+  <ng-container *ngIf="cocktail$ | async as cocktail; else loading">
+    <detailed-info [model]="cocktail"></detailed-info>
+  </ng-container>
+
+  <ng-template #loading>
+    <loader></loader>
+  </ng-template>
+</ion-content>
